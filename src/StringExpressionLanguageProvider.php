@@ -10,7 +10,8 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
     public function getFunctions(): array
     {
         return [
-            ExpressionFunction::fromPhp('sprintf', 'format')
+            ExpressionFunction::fromPhp('sprintf', 'format'),
+            new FileName('fileName')
         ];
     }
 }
