@@ -11,7 +11,9 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
     {
         return [
             ExpressionFunction::fromPhp('sprintf', 'format'),
-            new FileName('fileName')
+            ExpressionFunction::fromPhp('trim', 'trim'),
+            ExpressionFunction::fromPhp('str_replace', 'replace'),
+            new FileName('fileName'),
         ];
     }
 }
