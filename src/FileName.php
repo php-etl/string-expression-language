@@ -20,7 +20,7 @@ final class FileName extends ExpressionFunction
     private function compile($file)
     {
         return <<<COMPILED
-            !is_string(${file}) ? null : pathinfo({$file}, PATHINFO_FILENAME)
+            (!is_string(${file}) ? null : pathinfo({$file}, PATHINFO_FILENAME))
             COMPILED;
     }
 
