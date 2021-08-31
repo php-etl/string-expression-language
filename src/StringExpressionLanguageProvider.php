@@ -14,6 +14,8 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('trim', 'trim'),
             ExpressionFunction::fromPhp('str_replace', 'replace'),
             new FileName('fileName'),
+            new DateTime('dateTime'),
+            new FormatDate('formatDate'),
         ];
     }
 }
