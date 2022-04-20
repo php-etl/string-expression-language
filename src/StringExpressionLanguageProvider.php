@@ -12,7 +12,10 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
         return [
             ExpressionFunction::fromPhp('sprintf', 'format'),
             ExpressionFunction::fromPhp('trim', 'trim'),
-            ExpressionFunction::fromPhp('str_replace', 'replace'),
+            ExpressionFunction::fromPhp('ucfirst', 'capitalize'),
+            ExpressionFunction::fromPhp('strtolower', 'toLowerCase'),
+            ExpressionFunction::fromPhp('substr', 'search'),
+            ExpressionFunction::fromPhp('strtoupper', 'toUpperCase'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
