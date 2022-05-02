@@ -16,10 +16,12 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('strtolower', 'toLowerCase'),
             ExpressionFunction::fromPhp('substr', 'search'),
             ExpressionFunction::fromPhp('strtoupper', 'toUpperCase'),
+            ExpressionFunction::fromPhp('number_format', 'formatNumber'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
             new TruncateFileName('truncateFileName'),
+            new CurrentDateTime('currentDateTime'),
         ];
     }
 }
