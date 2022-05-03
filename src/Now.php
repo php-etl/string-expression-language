@@ -6,7 +6,7 @@ namespace Kiboko\Component\StringExpressionLanguage;
 
 use Symfony\Component\ExpressionLanguage\ExpressionFunction;
 
-class CurrentDateTime extends ExpressionFunction
+class Now extends ExpressionFunction
 {
     public function __construct($name)
     {
