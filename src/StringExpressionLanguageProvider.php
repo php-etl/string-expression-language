@@ -21,7 +21,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
             new TruncateFileName('truncateFileName'),
-            new CurrentDateTime('currentDateTime'),
+            new Now('now'),
         ];
     }
 }
