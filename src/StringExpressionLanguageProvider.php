@@ -17,7 +17,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('substr', 'search'),
             ExpressionFunction::fromPhp('strtoupper', 'toUpperCase'),
             ExpressionFunction::fromPhp('number_format', 'formatNumber'),
-            ExpressionFunction::fromPhp('strpos', 'position'),
+            ExpressionFunction::fromPhp('strpos', 'indexOf'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
