@@ -20,11 +20,11 @@ class FormatDate extends ExpressionFunction
     private function compile(string $dateTime, string $format)
     {
         return <<<"PHP"
-            {$dateTime}->format({$format})
-        PHP;
+                {$dateTime}->format({$format})
+            PHP;
     }
 
-    private function evaluate(array $context, string $dateTime, string $format)
+    private function evaluate(array $context, \DateTimeInterface $dateTime, string $format)
     {
         return $dateTime->format($format);
     }

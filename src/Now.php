@@ -20,12 +20,12 @@ class Now extends ExpressionFunction
     private function compile(string $timezone = null)
     {
         return <<<PHP
-            (new \DateTime('now', {$timezone} !== null ? new \DateTimeZone({$timezone}) : null))
-        PHP;
+                (new \\DateTime('now', {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null))
+            PHP;
     }
 
     private function evaluate(array $context, string $timezone = null)
     {
-        return new \DateTime('now', $timezone !== null ? new \DateTimeZone($timezone) : null);
+        return new \DateTime('now', null !== $timezone ? new \DateTimeZone($timezone) : null);
     }
 }

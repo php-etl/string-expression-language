@@ -24,7 +24,7 @@ final class TruncateFileName extends ExpressionFunction
                 !\\is_string({$filename}) ?
                 null :
                 (
-                    \\strlen(\$basename = \\pathinfo({$filename}, \\PATHINFO_BASENAME)) > $length ?
+                    \\strlen(\$basename = \\pathinfo({$filename}, \\PATHINFO_BASENAME)) > {$length} ?
                         \$basename . '.' . \\pathinfo({$filename}, \\PATHINFO_EXTENSION) :
                         {$filename}
                 )
@@ -37,8 +37,8 @@ final class TruncateFileName extends ExpressionFunction
         return !\is_string($filename) ?
             null :
             (
-                \strlen($basename = \pathinfo($filename, \PATHINFO_BASENAME)) > $length ?
-                    $basename . '.' . \pathinfo($filename, \PATHINFO_EXTENSION) :
+                \strlen($basename = pathinfo($filename, \PATHINFO_BASENAME)) > $length ?
+                    $basename.'.'.pathinfo($filename, \PATHINFO_EXTENSION) :
                     $filename
             );
     }

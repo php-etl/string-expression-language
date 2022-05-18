@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kiboko\Component\StringExpressionLanguage;
 
 use Symfony\Component\ExpressionLanguage\ExpressionFunction;
@@ -17,6 +19,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('substr', 'search'),
             ExpressionFunction::fromPhp('strtoupper', 'toUpperCase'),
             ExpressionFunction::fromPhp('number_format', 'formatNumber'),
+            ExpressionFunction::fromPhp('strpos', 'indexOf'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
