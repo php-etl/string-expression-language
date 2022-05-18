@@ -20,12 +20,12 @@ class DateTime extends ExpressionFunction
     private function compile(string $date, string $format, string $timezone = null)
     {
         return <<<"PHP"
-            \\DateTimeImmutable::createFromFormat({$format}, {$date}, {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null)
-        PHP;
+                \\DateTimeImmutable::createFromFormat({$format}, {$date}, {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null)
+            PHP;
     }
 
     private function evaluate(array $context, string $date, string $format, string $timezone = null)
     {
-        return \DateTimeImmutable::createFromFormat($format,$date, $timezone !== null ? new \DateTimeZone($timezone) : null);
+        return \DateTimeImmutable::createFromFormat($format, $date, null !== $timezone ? new \DateTimeZone($timezone) : null);
     }
 }
