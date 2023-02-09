@@ -23,6 +23,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('str_replace', 'replace'),
             ExpressionFunction::fromPhp('strip_tags', 'stripHtml'),
             ExpressionFunction::fromPhp('json_decode', 'decode'),
+            ExpressionFunction::fromPhp('preg_replace', 'replaceByExpression'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
