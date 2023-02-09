@@ -25,6 +25,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('json_decode', 'decode'),
             ExpressionFunction::fromPhp('preg_replace', 'replaceByExpression'),
             ExpressionFunction::fromPhp('ucwords', 'capitalizeWords'),
+            ExpressionFunction::fromPhp('rtrim', 'removeWhitespaces'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
