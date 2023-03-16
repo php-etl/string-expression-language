@@ -12,11 +12,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "symfony/expression-language": "^5.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.5 || ^10.0",
+        "rector/rector": "^0.15",
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -30,7 +33,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.1.x-dev"
+            "dev-main": "0.3.x-dev",
+            "dev-feature/qualityflow-improvments": "0.3.x-dev"
         }
     },
     "config": {
