@@ -17,7 +17,7 @@ final class TruncateFileName extends ExpressionFunction
         );
     }
 
-    private function compile(string $filename, string $length)
+    private function compile(string $filename, string $length): string
     {
         return <<<PHP
             (

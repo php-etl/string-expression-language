@@ -12,12 +12,12 @@ class DateTime extends ExpressionFunction
     {
         parent::__construct(
             $name,
-            \Closure::fromCallable($this->compile(...))->bindTo($this),
-            \Closure::fromCallable($this->evaluate(...))->bindTo($this)
+            $this->compile(...)->bindTo($this),
+            $this->evaluate(...)->bindTo($this)
         );
     }
 
-    private function compile(string $date, string $format, string $timezone = null)
+    private function compile(string $date, string $format, string $timezone = null): string
     {
         return <<<"PHP"
                 \\DateTimeImmutable::createFromFormat({$format}, {$date}, {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null)

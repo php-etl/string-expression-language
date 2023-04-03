@@ -12,12 +12,12 @@ final class FileName extends ExpressionFunction
     {
         parent::__construct(
             $name,
-            \Closure::fromCallable($this->compile(...))->bindTo($this),
-            \Closure::fromCallable($this->evaluate(...))->bindTo($this)
+            $this->compile(...)->bindTo($this),
+            $this->evaluate(...)->bindTo($this)
         );
     }
 
-    private function compile($file)
+    private function compile($file): string
     {
         return <<<COMPILED
             (!is_string({$file}) ? null : pathinfo({$file}, PATHINFO_FILENAME))
