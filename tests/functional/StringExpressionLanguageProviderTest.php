@@ -14,4 +14,11 @@ class StringExpressionLanguageProviderTest extends TestCase
 
         $this->assertEquals('SKU_000001', $interpreter->evaluate('format("SKU_%06d", 1)'));
     }
+
+    public function testExpression(): void
+    {
+        $interpreter = new ExpressionLanguage(null, [new StringExpressionLanguageProvider()]);
+
+        $this->assertEquals('SKU_000001', $interpreter->evaluate('fileName("SKU_000001")'));
+    }
 }

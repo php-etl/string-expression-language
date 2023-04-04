@@ -12,12 +12,12 @@ final class TruncateFileName extends ExpressionFunction
     {
         parent::__construct(
             $name,
-            \Closure::fromCallable([$this, 'compile'])->bindTo($this),
-            \Closure::fromCallable([$this, 'evaluate'])->bindTo($this)
+            \Closure::fromCallable($this->compile(...))->bindTo($this),
+            \Closure::fromCallable($this->evaluate(...))->bindTo($this)
         );
     }
 
-    private function compile(string $filename, string $length)
+    private function compile(string $filename, string $length): string
     {
         return <<<PHP
             (
