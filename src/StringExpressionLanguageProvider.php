@@ -32,6 +32,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             new FormatDate('formatDate'),
             new TruncateFileName('truncateFileName'),
             new Now('now'),
+            new ConvertCharCode('convertCharCode')
         ];
     }
 }
