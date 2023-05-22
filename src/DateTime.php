@@ -17,7 +17,7 @@ class DateTime extends ExpressionFunction
         );
     }
 
-    private function compile(string $date, string $format, string $timezone = null): string
+    private function compile(string $date, string $format, string $timezone = 'null'): string
     {
         return <<<"PHP"
                 \\DateTimeImmutable::createFromFormat({$format}, {$date}, {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null)
