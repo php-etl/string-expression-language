@@ -27,6 +27,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('ucwords', 'capitalizeWords'),
             ExpressionFunction::fromPhp('rtrim', 'removeWhitespaces'),
             ExpressionFunction::fromPhp('explode', 'splitIntoArray'),
+            ExpressionFunction::fromPhp('strval', 'transformToString'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
