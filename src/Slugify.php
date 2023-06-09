@@ -1,9 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\StringExpressionLanguage;
 
 use Symfony\Component\ExpressionLanguage\ExpressionFunction;
-use Symfony\Component\String\Slugger\AsciiSlugger;
 
 final class Slugify extends ExpressionFunction
 {
@@ -16,28 +17,32 @@ final class Slugify extends ExpressionFunction
         );
     }
 
-    private function compile(string $value, string $separator = '-'): string
+    private function compile(string $value, string $separator = '_'): string
     {
         return <<<PHP
             (function () use (\$input) : string {
                 \$string = strtolower({$value});
 
-                \$string = preg_replace('/[^\p{L}\p{Nd}\/]+/u', {$separator}, \$string);
+                \$string = preg_replace('/[^\\p{L}\\p{Nd}\\/]+/u', {$separator}, \$string);
 
                 \$string = str_replace('é', {$separator}, \$string);
+                
+                \$string = str_replace('/', {$separator}, \$string);
 
                 return trim(\$string, {$separator});
             })()
             PHP;
     }
 
-    private function evaluate(array $context, string $value, string $separator): string
+    private function evaluate(array $context, string $value, string $separator = '_'): string
     {
         $string = strtolower($value);
 
-        $string = preg_replace('/[^\p{L}\p{Nd}\/]+/u', $separator, $string);
+        $string = preg_replace('/[^\\p{L}\\p{Nd}\\/]+/u', $separator, $string);
 
         $string = str_replace('é', $separator, $string);
+
+        $string = str_replace('/', $separator, $string);
 
         return trim($string, $separator);
     }

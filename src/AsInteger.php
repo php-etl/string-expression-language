@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\StringExpressionLanguage;
 
@@ -18,7 +20,7 @@ final class AsInteger extends ExpressionFunction
     private function compile(string $value): string
     {
         return <<<PHP
-                ((int) $value)
+                ((int) {$value})
             PHP;
     }
 
