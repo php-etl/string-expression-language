@@ -27,8 +27,6 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('ucwords', 'capitalizeWords'),
             ExpressionFunction::fromPhp('rtrim', 'removeWhitespaces'),
             ExpressionFunction::fromPhp('explode', 'splitIntoArray'),
-            ExpressionFunction::fromPhp('strval', 'transformToString'),
-            ExpressionFunction::fromPhp('strrchr', 'findLast'),
             new FileName('fileName'),
             new DateTime('dateTime'),
             new FormatDate('formatDate'),
@@ -37,6 +35,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             new ConvertCharCode('convertCharCode'),
             new AsFloat('asFloat'),
             new AsInteger('asInteger'),
+            new AsString('asString'),
         ];
     }
 }
