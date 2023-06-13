@@ -16,7 +16,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('trim', 'trim'),
             ExpressionFunction::fromPhp('ucfirst', 'capitalize'),
             ExpressionFunction::fromPhp('strtolower', 'toLowerCase'),
-            ExpressionFunction::fromPhp('substr', 'search'),
+            ExpressionFunction::fromPhp('mb_substr', 'search'),
             ExpressionFunction::fromPhp('strtoupper', 'toUpperCase'),
             ExpressionFunction::fromPhp('number_format', 'formatNumber'),
             ExpressionFunction::fromPhp('strpos', 'indexOf'),
