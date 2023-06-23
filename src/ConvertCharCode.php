@@ -20,7 +20,7 @@ class ConvertCharCode extends ExpressionFunction
     private function compile(string $text, string $sourceCharCode, string $destinationCharCode): string
     {
         return <<<"PHP"
-            iconv($sourceCharCode, $destinationCharCode, $text)
+            iconv({$sourceCharCode}, {$destinationCharCode}, {$text})
             PHP;
     }
 
