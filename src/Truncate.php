@@ -21,21 +21,19 @@ final class Truncate extends ExpressionFunction
     {
         return <<<PHP
             (
-                !\\is_string({$input}) ?
-                null :
+                mb_strlen({$input}) > {$limit} ?
                 (
                     rtrim(mb_substr({$input}, 0, {$limit} - 1)) . '…'
-                )
+                ) : {$input}
             )
             PHP;
     }
 
     private function evaluate(array $context, string $input, int $limit)
     {
-        return !\is_string($input) ?
-            null :
+        return mb_strlen($input) > $limit ?
             (
                 rtrim(mb_substr($input, 0, $limit - 1)).'…'
-            );
+            ) : $input;
     }
 }
