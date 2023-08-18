@@ -35,3 +35,5 @@ foo: '@=format("%s", "output")'
 * `dateTime(string $string) : string` => Returns new DateTimeImmutable object formatted according to the specified format
 * `formatDate(string $string) : string` => Returns date formatted according to given format
 * `indexOf(string $haystack, string $needle, int $offset) : int|false` => Find the position of the first occurrence of a substring in a string
+* `truncate(string $string, int $limit) : string` => Truncates the string and adds "…" at the end, if the string is longer than the limit
+
