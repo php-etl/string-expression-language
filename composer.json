@@ -19,7 +19,7 @@
         "phpunit/phpunit": "^10.0",
         "rector/rector": "^0.15",
         "phpstan/phpstan": "^1.10",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "friendsofphp/php-cs-fixer": "^3.38"
     },
     "autoload": {
         "psr-4": {
