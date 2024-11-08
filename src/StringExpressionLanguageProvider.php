@@ -37,6 +37,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             new AsFloat('asFloat'),
             new AsInteger('asInteger'),
             new AsString('asString'),
+            new Slugify('slugify'),
         ];
     }
 }
