@@ -20,14 +20,29 @@ final class FileExtension extends ExpressionFunction
     private function compile(string $value): string
     {
         return <<<PHP
-            (function () use (\$input) : string {
-                 return \\pathinfo($value, \FILEINFO_EXTENSION)
+            (function () use (\$input) : ?string {
+                \$validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'pdf', 'mp4', 'webm', 'mp3'];
+                
+                \$extension = \\pathinfo({$value})['extension'] ?? null;
+                if (!\\in_array(\$extension, \$validExtensions, true)) {
+                    return null;
+                }
+                
+                return \$extension;
             })()
             PHP;
     }
 
-    private function evaluate(array $context, string $file): string
+    private function evaluate(array $context, string $file): ?string
     {
-        return pathinfo($file, \FILEINFO_EXTENSION);
+        $validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg'];
+
+        $extension = pathinfo($file)['extension'] ?? null;
+
+        if (!\in_array($extension, $validExtensions, true)) {
+            return null;
+        }
+
+        return $extension;
     }
 }
