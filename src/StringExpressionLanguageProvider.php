@@ -38,6 +38,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             new AsInteger('asInteger'),
             new AsString('asString'),
             new Slugify('slugify'),
+            new FileExtension('fileExtension'),
         ];
     }
 }
