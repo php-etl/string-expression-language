@@ -21,17 +21,13 @@ final class FileExtension extends ExpressionFunction
     {
         return <<<PHP
             (function () use (\$input) : string {
-                \$parts = explode('.', basename($value));
-
-                return end(\$parts);
+                 return \\pathinfo($value, \FILEINFO_EXTENSION)
             })()
             PHP;
     }
 
-    private function evaluate(array $context, string $imageUrl): string
+    private function evaluate(array $context, string $file): string
     {
-        $parts = explode('.', basename($imageUrl));
-
-        return end($parts);
+        return pathinfo($file, \FILEINFO_EXTENSION);
     }
 }

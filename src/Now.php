@@ -17,14 +17,14 @@ class Now extends ExpressionFunction
         );
     }
 
-    private function compile(string $timezone = null): string
+    private function compile(?string $timezone = null): string
     {
         return <<<PHP
                 (new \\DateTime('now', {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null))
             PHP;
     }
 
-    private function evaluate(array $context, string $timezone = null)
+    private function evaluate(array $context, ?string $timezone = null)
     {
         return new \DateTime('now', null !== $timezone ? new \DateTimeZone($timezone) : null);
     }
