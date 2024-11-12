@@ -24,7 +24,7 @@ class StringExpressionLanguageProvider implements ExpressionFunctionProviderInte
             ExpressionFunction::fromPhp('strip_tags', 'stripHtml'),
             ExpressionFunction::fromPhp('json_decode', 'decode'),
             ExpressionFunction::fromPhp('preg_replace', 'replaceByExpression'),
-            ExpressionFunction::fromPhp('preg_match', 'matchExpression'),
+            new TestPattern('testPattern'),
             new CapitalizeWords('capitalizeWords'),
             ExpressionFunction::fromPhp('rtrim', 'removeWhitespaces'),
             ExpressionFunction::fromPhp('explode', 'splitIntoArray'),
