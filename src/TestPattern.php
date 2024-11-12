@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kiboko\Component\StringExpressionLanguage;
 
 class TestPattern
@@ -30,8 +32,8 @@ class TestPattern
         $result = preg_match($pattern, $subject);
         if (!$result) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 }

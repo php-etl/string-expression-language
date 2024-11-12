@@ -24,7 +24,7 @@ class DateTime extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, string $date, string $format, string $timezone = null)
+    private function evaluate(array $context, string $date, string $format, ?string $timezone = null)
     {
         return \DateTimeImmutable::createFromFormat($format, $date, null !== $timezone ? new \DateTimeZone($timezone) : null);
     }
