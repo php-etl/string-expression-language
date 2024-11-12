@@ -8,11 +8,6 @@ class TestPattern
 {
     public function __construct($name)
     {
-        parent::__construct(
-            $name,
-            $this->compile(...)->bindTo($this),
-            $this->evaluate(...)->bindTo($this)
-        );
     }
 
     private function compile(string $pattern, string $subject): bool
