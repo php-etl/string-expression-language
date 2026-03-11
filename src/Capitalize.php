@@ -30,12 +30,11 @@ final class Capitalize extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, string $input)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, string $input): string
     {
-        return !\is_string($input) ?
-            null :
-            (
-                mb_convert_case(mb_substr($input, 0, 1), \MB_CASE_UPPER).mb_substr($input, 1, -1)
-            );
+        return mb_convert_case(mb_substr($input, 0, 1), \MB_CASE_UPPER).mb_substr($input, 1, -1);
     }
 }

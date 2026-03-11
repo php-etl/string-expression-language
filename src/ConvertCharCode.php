@@ -24,7 +24,10 @@ class ConvertCharCode extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, string $text, string $sourceCharCode, string $destinationCharCode)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, string $text, string $sourceCharCode, string $destinationCharCode): string|false
     {
         return iconv($sourceCharCode, $destinationCharCode, $text);
     }

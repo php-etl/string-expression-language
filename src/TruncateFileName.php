@@ -32,14 +32,13 @@ final class TruncateFileName extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, string $filename, int $length)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, string $filename, int $length): string
     {
-        return !\is_string($filename) ?
-            null :
-            (
-                \strlen($basename = pathinfo($filename, \PATHINFO_BASENAME)) > $length ?
-                    $basename.'.'.pathinfo($filename, \PATHINFO_EXTENSION) :
-                    $filename
-            );
+        return \strlen($basename = pathinfo($filename, \PATHINFO_BASENAME)) > $length
+            ? $basename.'.'.pathinfo($filename, \PATHINFO_EXTENSION)
+            : $filename;
     }
 }

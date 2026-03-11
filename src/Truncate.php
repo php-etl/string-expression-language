@@ -29,7 +29,10 @@ final class Truncate extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, string $input, int $limit)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, string $input, int $limit): string
     {
         return mb_strlen($input) > $limit ?
             (

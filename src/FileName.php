@@ -17,14 +17,17 @@ final class FileName extends ExpressionFunction
         );
     }
 
-    private function compile($file): string
+    private function compile(mixed $file): string
     {
         return <<<COMPILED
             (!is_string({$file}) ? null : pathinfo({$file}, PATHINFO_FILENAME))
             COMPILED;
     }
 
-    private function evaluate(array $context, $file)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, mixed $file): ?string
     {
         return !\is_string($file) ? null : pathinfo($file, \PATHINFO_FILENAME);
     }

@@ -24,6 +24,9 @@ final class AsString extends ExpressionFunction
             PHP;
     }
 
+    /**
+     * @param array<string, mixed> $context
+     */
     private function evaluate(array $context, int|float|string $value): string
     {
         return (string) $value;
