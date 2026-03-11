@@ -24,7 +24,10 @@ final class AsInteger extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, string $value)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, string $value): int
     {
         return (int) $value;
     }

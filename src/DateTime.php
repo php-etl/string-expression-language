@@ -17,14 +17,19 @@ class DateTime extends ExpressionFunction
         );
     }
 
-    private function compile(string $date, string $format, string $timezone = 'null'): string
+    private function compile(string $date, string $format, ?string $timezone = null): string
     {
+        $timezoneArg = $timezone === null ? 'null' : "{$timezone} !== null ? new \\DateTimeZone({$timezone}) : null";
+
         return <<<"PHP"
-                \\DateTimeImmutable::createFromFormat({$format}, {$date}, {$timezone} !== null ? new \\DateTimeZone({$timezone}) : null)
+                \\DateTimeImmutable::createFromFormat({$format}, {$date}, {$timezoneArg})
             PHP;
     }
 
-    private function evaluate(array $context, string $date, string $format, string $timezone = null)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, string $date, string $format, ?string $timezone = null): \DateTimeImmutable|false
     {
         return \DateTimeImmutable::createFromFormat($format, $date, null !== $timezone ? new \DateTimeZone($timezone) : null);
     }

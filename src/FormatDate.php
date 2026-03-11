@@ -24,7 +24,10 @@ class FormatDate extends ExpressionFunction
             PHP;
     }
 
-    private function evaluate(array $context, \DateTimeInterface $dateTime, string $format)
+    /**
+     * @param array<string, mixed> $context
+     */
+    private function evaluate(array $context, \DateTimeInterface $dateTime, string $format): string
     {
         return $dateTime->format($format);
     }
